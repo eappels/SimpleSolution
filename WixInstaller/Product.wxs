@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?define Name="SimpleApp" ?>
+<?define Version="1.0.0.0" ?>
+<?define Id="put-guid-here" ?>
+<?define UpgradeCode="put-guid-here" ?>
+<?define Manufacturer="Test User" ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	
+	<Product Id="$(var.Id)"
+			 Name="$(var.Name)"
+			 Language="1033"
+			 Version="$(var.Version)"
+			 Manufacturer="$(var.Manufacturer)"
+			 UpgradeCode="$(var.UpgradeCode)">
+		
+		<Package InstallerVersion="200"
+				 Compressed="yes"
+				 InstallScope="perMachine" />
+		
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFiles64Folder">
+				<Directory Id="MyAppProgramFiles64Dir" Name="$(var.Name)"/>
+			</Directory>
+		</Directory>
+
+
+	</Product>
+	
+</Wix>
